@@ -13,5 +13,5 @@ export type Item = {
 }
 
 export function getData():Item[] {
-    return JSON.parse(String(etsyJson));
+    return etsyJson;
 }
