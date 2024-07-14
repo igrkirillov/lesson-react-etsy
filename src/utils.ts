@@ -1,8 +1,8 @@
-export function formatLongText(text:string):string {
+export function formatLongText(text: string): string {
   return text && text.length > 50 ? text.substring(0, 50) + "..." : text;
 }
 
-export function formatPrice(currencyCode:string, priceStr:string): string {
+export function formatPrice(currencyCode: string, priceStr: string): string {
   if (currencyCode === "USD") {
     return "$" + priceStr;
   } else if (currencyCode === "EUR") {
@@ -12,7 +12,7 @@ export function formatPrice(currencyCode:string, priceStr:string): string {
   }
 }
 
-export function getClassNameForStock(stock:number):string {
+export function getClassNameForStock(stock: number): string {
   if (stock <= 10) {
     return "level-low";
   } else if (stock <= 20) {
