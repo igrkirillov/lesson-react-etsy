@@ -1,6 +1,9 @@
 import React from 'react';
 import {Item} from "../../../dataApi";
 import styles from "./listing-item.module.css"
+import {formatLongText} from "../../../utils.ts"
+import {formatPrice} from "../../../utils.ts"
+import {getClassNameForStock} from "../../../utils.ts"
 
 export type ListingItemProps = {
     item: Item
@@ -16,9 +19,9 @@ export function ListingItem(props: ListingItemProps) {
                 </a>
             </div>
             <div className={styles["item-details"]}>
-                <p className={styles["item-title"]}>{item.title}</p>
-                <p className={styles["item-price"]}>{item.currency_code + "" +  item.price}</p>
-                <p className={[styles["item-quantity"], styles["level-medium"]].join(" ")}>{item.quantity + " left"}</p>
+                <p className={styles["item-title"]}>{formatLongText(item.title)}</p>
+                <p className={styles["item-price"]}>{formatPrice(item.currency_code, item.price)}</p>
+                <p className={[styles["item-quantity"], styles[getClassNameForStock(item.quantity)]].join(" ")}>{item.quantity + " left"}</p>
             </div>
         </div>
     );
